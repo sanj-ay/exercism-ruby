@@ -1,8 +1,19 @@
-=begin
-Write your code for the 'Series' exercise in this file. Make the tests in
-`series_test.rb` pass.
+class Series
+  def initialize(data)
+    @data = data
+  end
 
-To get started with TDD, see the `README.md` file in your
-`ruby/series` directory.
-=end
-
+  def slices(num)
+    starting = 0
+    result = []
+    if num > @data.length
+      raise ArgumentError
+    else
+      while starting + num <= @data.length
+        result.append(@data[starting..(starting + num - 1)])
+        starting += 1
+      end
+    end
+    result
+  end
+end
